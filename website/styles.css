@@ -491,9 +491,11 @@ body {
 }
 
 .doc-arrow {
-    font-size: 1.5rem;
+    width: 24px;
+    height: 24px;
     color: var(--primary-color);
     transition: transform 0.3s;
+    flex-shrink: 0;
 }
 
 .doc-link:hover .doc-arrow {
