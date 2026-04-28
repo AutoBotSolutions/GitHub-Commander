@@ -44,11 +44,11 @@ def main():
             Repo.clone_from(wiki_url, temp_dir)
             wiki_repo = Repo(temp_dir)
             
-            # Website directory
-            website_dir = Path("/home/robbie/Desktop/github-commander/website")
+            # Videos directory
+            videos_dir = Path("/home/robbie/Desktop/github-commander/videos")
             
             # Find all markdown files
-            md_files = list(website_dir.glob("*.md"))
+            md_files = list(videos_dir.glob("*.md"))
             print(f"Found {len(md_files)} markdown files to upload")
             
             # Copy files to wiki repo

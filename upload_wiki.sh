@@ -3,16 +3,20 @@
 
 # Configuration
 WIKI_REPO="https://github.com/AutoBotSolutions/GitHub-Commander.wiki.git"
-WEBSITE_DIR="/home/robbie/Desktop/github-commander/website"
+VIDEOS_DIR="/home/robbie/Desktop/github-commander/videos"
 TEMP_DIR="/tmp/github-commander-wiki"
 
 echo "Cloning wiki repository..."
 git clone "$WIKI_REPO" "$TEMP_DIR"
 
 echo "Copying wiki pages..."
-cp "$WEBSITE_DIR"/*.md "$TEMP_DIR/"
+cp "$VIDEOS_DIR"/*.md "$TEMP_DIR/"
 
 cd "$TEMP_DIR"
+
+echo "Configuring git..."
+git config user.name "Robert Trenaman"
+git config user.email "autobotsolution@gmail.com"
 
 echo "Adding files to git..."
 git add .
