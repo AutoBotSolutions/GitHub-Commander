@@ -207,13 +207,11 @@ body {
 .glitch::before {
     color: var(--primary-color);
     animation: glitch-1 2s infinite linear alternate-reverse;
-    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
 }
 
 .glitch::after {
     color: var(--secondary-color);
     animation: glitch-2 3s infinite linear alternate-reverse;
-    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
 }
 
 @keyframes glitch-1 {
@@ -550,7 +548,7 @@ body {
 }
 
 .requirements li::before {
-    content: '▹';
+    content: '•';
     position: absolute;
     left: 0;
     color: var(--accent-color);
