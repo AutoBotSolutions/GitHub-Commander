@@ -1,45 +1,44 @@
-# GitHub Commander Documentation
+# GitHub Commander - Linux Desktop GUI
 
-Welcome to the GitHub Commander documentation. This comprehensive guide will help you get started with using GitHub Commander, a powerful GitHub desktop application for Linux.
+A comprehensive GitHub desktop application for Linux that provides FTP-like functionality with full GitHub deployment capabilities.
 
-## Quick Start
+## Features
 
-1. [Installation](INSTALLATION.md) - Set up GitHub Commander on your system
-2. [Authentication](AUTHENTICATION.md) - Configure your GitHub token
-3. [Repository Management](REPOSITORY_MANAGEMENT.md) - Browse, clone, and create repositories
+- **FTP-like Interface**: Dual-pane browser for local files and GitHub repositories
+- **File Operations**: Upload/download files and folders with drag & drop
+- **GitHub Pages**: Deploy and manage GitHub Pages sites
+- **Wiki Management**: Upload and manage repository wikis
+- **Package Management**: Upload packages by folder (npm, pip, cargo, etc.)
+- **Git Operations**: Clone, commit, push, pull, branch management
+- **Release Management**: Create and manage GitHub releases
+- **Comprehensive Settings**: Configure all GitHub options and preferences
+- **Authentication**: Secure GitHub token management
 
-## Core Features
+## Installation
 
-### File Operations
-- [File Operations Guide](FILE_OPERATIONS.md) - Upload, download, and manage files
+```bash
+pip install -r requirements.txt
+python main.py
+```
 
-### Repository Features
-- [Wiki Management](WIKI_MANAGEMENT.md) - Create and manage repository wikis
-- [GitHub Pages](GITHUB_PAGES.md) - Deploy and manage GitHub Pages sites
-- [Package Management](PACKAGE_MANAGEMENT.md) - Upload packages to various registries
-- [Git Operations](GIT_OPERATIONS.md) - Commit, push, pull, and manage branches
-- [Release Management](RELEASE_MANAGEMENT.md) - Create and manage GitHub releases
+## Requirements
 
-### Configuration
-- [Settings](SETTINGS.md) - Configure application settings and preferences
+- Python 3.8+
+- PyQt6
+- PyGithub
+- GitPython
+- requests
+- keyring
+- pyperclip
 
-## Support
+## Usage
 
-- [Troubleshooting](TROUBLESHOOTING.md) - Common issues and solutions
-- [Keyboard Shortcuts](KEYBOARD_SHORTCUTS.md) - Keyboard shortcuts for power users
-- [Best Practices](BEST_PRACTICES.md) - Recommended workflows and tips
-- [Security](SECURITY.md) - Security considerations and best practices
-
-## Getting Help
-
-If you encounter issues not covered in this documentation:
-
-1. Check the [Troubleshooting](TROUBLESHOOTING.md) guide
-2. Review the console output for detailed error messages
-3. Ensure you're using the latest version
-4. Verify all dependencies are installed correctly
-5. Check GitHub status for service outages
+1. Launch the application
+2. Authenticate with your GitHub token
+3. Browse repositories or clone new ones
+4. Upload/download files using the FTP-like interface
+5. Deploy to GitHub Pages, manage wikis, or upload packages
 
 ## License
 
-GitHub Commander is released under the MIT License. See LICENSE file for details.
+MIT License

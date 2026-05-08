@@ -207,11 +207,13 @@ body {
 .glitch::before {
     color: var(--primary-color);
     animation: glitch-1 2s infinite linear alternate-reverse;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
 }
 
 .glitch::after {
     color: var(--secondary-color);
     animation: glitch-2 3s infinite linear alternate-reverse;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
 }
 
 @keyframes glitch-1 {
@@ -432,8 +434,13 @@ body {
 }
 
 .feature-icon {
-    font-size: 3rem;
+    width: 48px;
+    height: 48px;
     margin-bottom: 1rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .feature-card h3 {
@@ -479,7 +486,10 @@ body {
 }
 
 .doc-icon {
-    font-size: 2rem;
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+    flex-shrink: 0;
 }
 
 .doc-title {
@@ -489,9 +499,11 @@ body {
 }
 
 .doc-arrow {
-    font-size: 1.5rem;
+    width: 20px;
+    height: 20px;
     color: var(--primary-color);
     transition: transform 0.3s;
+    flex-shrink: 0;
 }
 
 .doc-link:hover .doc-arrow {
