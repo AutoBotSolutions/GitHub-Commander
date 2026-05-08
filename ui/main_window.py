@@ -155,6 +155,21 @@ class MainWindow(QMainWindow):
         refresh_action.triggered.connect(self.refresh)
         view_menu.addAction(refresh_action)
         
+        # GitHub Pages menu
+        pages_menu = menubar.addMenu("GitHub Pages")
+        
+        pages_deploy_action = QAction("Deploy to Pages", self)
+        pages_deploy_action.triggered.connect(self.deploy_to_pages)
+        pages_menu.addAction(pages_deploy_action)
+        
+        pages_enable_action = QAction("Enable Pages", self)
+        pages_enable_action.triggered.connect(self.enable_pages)
+        pages_menu.addAction(pages_enable_action)
+        
+        pages_workflow_action = QAction("Generate Workflow", self)
+        pages_workflow_action.triggered.connect(self.generate_pages_workflow)
+        pages_menu.addAction(pages_workflow_action)
+        
         # Help menu
         help_menu = menubar.addMenu("Help")
         
@@ -312,6 +327,42 @@ class MainWindow(QMainWindow):
     def on_local_file_selected(self, file_path):
         """Handle local file selection"""
         self.status_bar.showMessage(f"Selected: {file_path}")
+    
+    def deploy_to_pages(self):
+        """Deploy to GitHub Pages"""
+        if not self.current_repo:
+            QMessageBox.warning(self, "No Repository", 
+                              "Please select a repository first.")
+            return
+        
+        # Switch to Pages tab
+        self.tab_widget.setCurrentWidget(self.pages_panel)
+        # Trigger deploy
+        self.pages_panel.deploy()
+    
+    def enable_pages(self):
+        """Enable GitHub Pages"""
+        if not self.current_repo:
+            QMessageBox.warning(self, "No Repository", 
+                              "Please select a repository first.")
+            return
+        
+        # Switch to Pages tab
+        self.tab_widget.setCurrentWidget(self.pages_panel)
+        # Trigger enable
+        self.pages_panel.enable_pages_site()
+    
+    def generate_pages_workflow(self):
+        """Generate GitHub Pages workflow"""
+        if not self.current_repo:
+            QMessageBox.warning(self, "No Repository", 
+                              "Please select a repository first.")
+            return
+        
+        # Switch to Pages tab
+        self.tab_widget.setCurrentWidget(self.pages_panel)
+        # Trigger workflow generation
+        self.pages_panel.generate_workflow()
     
     def about(self):
         """Show about dialog"""

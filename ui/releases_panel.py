@@ -54,10 +54,11 @@ class ReleasesPanel(QWidget):
         )
         list_layout.addWidget(self.releases_table)
         
-        refresh_button = QPushButton("Refresh Releases")
-        refresh_button.clicked.connect(self.load_releases)
-        refresh_button.setEnabled(False)
-        list_layout.addWidget(refresh_button)
+        self.refresh_releases_button = QPushButton("Refresh Releases")
+        self.refresh_releases_button.setObjectName("Refresh Releases")
+        self.refresh_releases_button.clicked.connect(self.load_releases)
+        self.refresh_releases_button.setEnabled(False)
+        list_layout.addWidget(self.refresh_releases_button)
         
         list_group.setLayout(list_layout)
         layout.addWidget(list_group)
@@ -165,7 +166,7 @@ class ReleasesPanel(QWidget):
         self.repo_label.setText(f"Repository: {repo.full_name}")
         
         # Enable buttons
-        self.findChild(QPushButton, "Refresh Releases").setEnabled(True)
+        self.refresh_releases_button.setEnabled(True)
         self.create_release_button.setEnabled(True)
         self.upload_asset_button.setEnabled(True)
         

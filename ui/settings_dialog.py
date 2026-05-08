@@ -5,7 +5,7 @@ Settings Dialog - Configure application settings
 from PySide6.QtWidgets import (QDialog, QVBoxLayout, QHBoxLayout, QLabel, 
                              QLineEdit, QPushButton, QComboBox, QCheckBox,
                              QTabWidget, QGroupBox, QSpinBox, QFileDialog,
-                             QMessageBox)
+                             QMessageBox, QWidget)
 from PySide6.QtCore import Qt
 from config import Config
 

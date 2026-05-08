@@ -181,10 +181,10 @@ class GitPanel(QWidget):
         self.stage_file = QLineEdit()
         stage_file_layout.addWidget(self.stage_file)
         
-        stage_single = QPushButton("Stage")
-        stage_single.clicked.connect(self.stage_single_file)
-        stage_single.setEnabled(False)
-        stage_file_layout.addWidget(stage_single)
+        self.stage_single_button = QPushButton("Stage")
+        self.stage_single_button.clicked.connect(self.stage_single_file)
+        self.stage_single_button.setEnabled(False)
+        stage_file_layout.addWidget(self.stage_single_button)
         
         stage_layout.addLayout(stage_file_layout)
         
@@ -433,7 +433,7 @@ class GitPanel(QWidget):
         
         # Enable buttons
         self.stage_all.setEnabled(True)
-        self.stage_single.setEnabled(True)
+        self.stage_single_button.setEnabled(True)
         self.commit_button.setEnabled(True)
         self.push_button.setEnabled(True)
         self.pull_button.setEnabled(True)

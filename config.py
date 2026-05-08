@@ -32,7 +32,12 @@ class Config:
             },
             'pages': {
                 'source_branch': 'main',
-                'custom_domain': ''
+                'custom_domain': '',
+                'publishing_source': 'github_actions',
+                'node_version': '20',
+                'framework': 'None (Static)',
+                'enforce_https': True,
+                'auto_deploy': True
             },
             'wiki': {
                 'default_home': 'Home'

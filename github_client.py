@@ -202,6 +202,74 @@ class GitHubClient:
             print(f"Error creating Pages workflow: {e}")
             return False
     
+    def configure_pages_publishing_source(self, repo: Repository, source: str = "github_actions") -> bool:
+        """Configure Pages publishing source (branch or GitHub Actions)"""
+        try:
+            import requests
+            headers = {
+                "Authorization": f"token {self.config.get('github_token')}",
+                "Accept": "application/vnd.github.v3+json"
+            }
+            data = {"source": source}
+            response = requests.post(
+                f"{repo.url}/pages",
+                headers=headers,
+                json=data
+            )
+            return response.status_code in [200, 201, 204]
+        except Exception:
+            return False
+    
+    def set_pages_custom_domain(self, repo: Repository, domain: str) -> bool:
+        """Set custom domain for GitHub Pages"""
+        try:
+            import requests
+            headers = {
+                "Authorization": f"token {self.config.get('github_token')}",
+                "Accept": "application/vnd.github.v3+json"
+            }
+            data = {"cname": domain}
+            response = requests.post(
+                f"{repo.url}/pages",
+                headers=headers,
+                json=data
+            )
+            return response.status_code in [200, 201, 204]
+        except Exception:
+            return False
+    
+    def get_pages_build_status(self, repo: Repository) -> Dict[str, Any]:
+        """Get GitHub Pages build status"""
+        try:
+            import requests
+            headers = {
+                "Authorization": f"token {self.config.get('github_token')}",
+                "Accept": "application/vnd.github.v3+json"
+            }
+            response = requests.get(
+                f"{repo.url}/pages/builds/latest",
+                headers=headers
+            )
+            if response.status_code == 200:
+                return response.json()
+            return {}
+        except Exception:
+            return {}
+    
+    def create_cname_file(self, repo: Repository, domain: str, 
+                         branch: str = "main") -> bool:
+        """Create CNAME file in repository root"""
+        try:
+            return self.upload_file(
+                repo, 
+                "CNAME", 
+                domain, 
+                f"Add CNAME for {domain}", 
+                branch
+            )
+        except Exception:
+            return False
+    
     def upload_pages_content(self, repo: Repository, local_folder: Path, 
                             repo_path: str = "", branch: str = "main") -> Dict[str, bool]:
         """Upload local folder contents to repository for Pages deployment"""
